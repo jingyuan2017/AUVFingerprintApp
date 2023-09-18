@@ -1,0 +1,98 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.example.auvfingerprintapp'
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.example.auvfingerprintapp"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'AUV'
+            keyPassword '19870714'
+            storePassword '19870714'
+            storeFile file("./AUV_key.jks")
+        }
+        debug {
+            keyAlias 'AUV'
+            keyPassword '19870714'
+            storePassword '19870714'
+            storeFile file("./AUV_key.jks")
+        }
+    }
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            if (variant.buildType.name == 'release') {
+//                variant.getPackageApplicationProvider().get().outputDirectory = new File("../APK/AUV")
+                outputFileName = "Finger_input${defaultConfig.versionName}(${defaultConfig.versionCode}).apk"
+            }else {
+                outputFileName = "Finger_input${defaultConfig.versionName}_debug(${defaultConfig.versionCode}).apk"
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug{
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    //jar
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    implementation 'me.jessyan:autosize:1.2.1'
+    implementation 'com.lzy.net:okgo:3.0.4'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    implementation 'com.google.code.gson:gson:2.10'
+    implementation 'pub.devrel:easypermissions:3.0.0'
+    implementation "com.mikepenz:fastadapter:5.7.0"
+    implementation 'com.github.bumptech.glide:glide:4.13.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+    implementation  'io.github.scwang90:refresh-layout-kernel:2.0.5'      //核心必须依赖
+    implementation  'io.github.scwang90:refresh-header-classics:2.0.5'    //经典刷新头
+    implementation  'io.github.scwang90:refresh-footer-classics:2.0.5'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.10'
+    implementation 'com.afollestad.material-dialogs:core:3.3.0'
+    implementation 'com.afollestad.material-dialogs:lifecycle:3.3.0'
+    implementation 'com.tencent:mmkv:1.2.14'
+    implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:3.0.0-RC3'
+}

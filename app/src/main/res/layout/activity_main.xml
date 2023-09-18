@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F7F8"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp">
+
+            <TextView
+                android:id="@+id/system_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="指纹信息录入系统"
+                android:textColor="@color/black"
+                android:textSize="56sp" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:background="@drawable/shape_edt"
+                android:id="@+id/main_edt"
+                android:layout_width="1184dp"
+                android:layout_height="88dp"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:maxLines="1"
+                android:inputType="text"
+                android:hint="请输入人员编号或姓名搜索"
+                android:textSize="32sp" />
+
+        </RelativeLayout>
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/no_data_lin"
+            android:layout_marginTop="24dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_gravity="center_horizontal"
+                android:src="@mipmap/icon_no_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_marginTop="30dp"
+                android:text="没有相关数据"
+                android:textSize="24sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <RelativeLayout
+            android:id="@+id/has_data_lin"
+            android:background="#F6F7F8"
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+           <com.scwang.smart.refresh.layout.SmartRefreshLayout
+               android:id="@+id/refreshLayout"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent">
+               <com.scwang.smart.refresh.header.ClassicsHeader
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"/>
+               <androidx.recyclerview.widget.RecyclerView
+                   android:background="#F6F7F8"
+                   android:id="@+id/main_rv"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"/>
+               <com.scwang.smart.refresh.footer.ClassicsFooter
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"/>
+           </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

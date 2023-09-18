@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F7F8"
+    tools:context=".SettingActivity">
+    <ImageView
+        android:id="@+id/iv_back"
+        android:src="@mipmap/icon_back"
+        android:layout_margin="60dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp">
+
+            <TextView
+                android:id="@+id/system_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="指纹信息录入系统"
+                android:textColor="@color/black"
+                android:textSize="56sp" />
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="10dp"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_margin="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textSize="26dp"
+                    android:text="指纹设备Api地址:"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <EditText
+                    android:paddingStart="20dp"
+                    android:textSize="26dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/shape_edt_system"
+                    android:id="@+id/setting_api_edt"
+                    android:layout_width="700dp"
+                    android:layout_height="38dp"/>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <Button
+        android:textSize="32sp"
+        android:text="保存配置"
+        android:background="@drawable/btn_bg"
+        android:layout_marginBottom="50dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/setting_btn_save"
+        android:layout_alignParentBottom="true"
+        android:layout_width="500dp"
+        android:layout_height="65dp"/>
+
+
+</RelativeLayout>

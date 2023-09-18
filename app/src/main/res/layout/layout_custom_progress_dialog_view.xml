@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="400dp"
+    android:layout_height="250dp"
+    android:layout_gravity="center"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:layout_gravity="center"
+            android:id="@+id/progressBar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:indeterminateTint="#ffffdd0a"
+            android:indeterminateTintMode="src_atop" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:id="@+id/loading_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="加载中..."
+            android:textColor="#666"
+            android:textSize="20sp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

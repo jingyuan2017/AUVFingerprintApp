@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AUVFingerprintApp</string>
+    <string name="finger_register">录入指纹</string>
+</resources>
